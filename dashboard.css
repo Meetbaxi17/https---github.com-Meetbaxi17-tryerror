@@ -1,0 +1,140 @@
+#content {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+body {
+  background-image: url("./03-Dashboard-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+}
+.hover-image {
+  position: fixed;
+  top: 50%;
+  right: -30px; /* Half of image width if image is ~200px */
+  transform: translateY(-50%);
+  transition: right 0.4s ease;
+  z-index: 1000;
+}
+
+.hover-image img {
+  height: 150px; /* Adjust as needed */
+  display: block;
+  cursor: pointer;
+}
+
+.hover-image:hover {
+  right: -20px; /* Pulls it in slightly on hover */
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* 👈 Centers the bar */
+  width: 80%; /* or use fixed like 600px */
+  height: 60px;
+  background-color: #000e47;
+  color: #fff;
+  overflow: hidden;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border: 2px dotted #fedf08;
+  border-radius: 4px; /* Optional: rounded edges */
+  margin-top: 40px; /* Optional: space from the top */
+  display: flex; /* 👈 key to vertical centering */
+  align-items: center;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+
+.top-bar marquee {
+  line-height: 24px;
+}
+
+.main-content {
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.scrolling-text-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 30s linear infinite;
+  font-size: 16px;
+  line-height: 60px; /* Same as top-bar height for perfect vertical centering */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.img-only-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.img-only-button img {
+  width: 85px; /* Adjust size as needed */
+  height: auto;
+  display: block; /* Removes extra space below image */
+  border-radius: 0px;
+}
+
+/* Optional: Position it somewhere like top-right */
+.exit-button {
+  position: absolute;
+  top: 38px;
+  right: 45px;
+}
+
+.top-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
+  /* space between cards */
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 15px; /* space between cards */
+  padding: 40px; /* space around the grid */
+  margin-top: 130px;
+}
+
+.card {
+  background-color: #000e47;
+  border-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 370px;
+  height: 100px;
+}
+
+.card.full-span {
+  grid-column: 1 / -1; /* Span across all columns */
+  height: 120px;
+  width: 1287px; /* Optional: Taller card */
+}
