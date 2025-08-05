@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
 #content {
   position: relative;
 }
@@ -5,9 +7,9 @@
 img {
   max-width: 100%;
   height: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
+
 body {
   background-image: url("./03-Dashboard-bg.png");
   background-size: cover;
@@ -16,31 +18,34 @@ body {
   height: 100vh;
   margin: 0;
 }
+
+/* Hover Image */
 .hover-image {
   position: fixed;
   top: 50%;
-  right: -30px; /* Half of image width if image is ~200px */
+  right: -30px;
   transform: translateY(-50%);
   transition: right 0.4s ease;
   z-index: 1000;
 }
 
 .hover-image img {
-  height: 150px; /* Adjust as needed */
+  height: 150px;
   display: block;
   cursor: pointer;
 }
 
 .hover-image:hover {
-  right: -20px; /* Pulls it in slightly on hover */
+  right: -20px;
 }
 
+/* Top Bar */
 .top-bar {
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translateX(-50%); /* 👈 Centers the bar */
-  width: 80%; /* or use fixed like 600px */
+  transform: translateX(-50%);
+  width: 80%;
   height: 60px;
   background-color: #000e47;
   color: #fff;
@@ -48,23 +53,25 @@ body {
   padding: 0 20px;
   box-sizing: border-box;
   border: 2px dotted #fedf08;
-  border-radius: 4px; /* Optional: rounded edges */
-  margin-top: 40px; /* Optional: space from the top */
-  display: flex; /* 👈 key to vertical centering */
+  border-radius: 4px;
+  margin-top: 40px;
+  display: flex;
   align-items: center;
   font-family: "Pixelify Sans", sans-serif;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
 }
 
 .top-bar marquee {
   line-height: 24px;
 }
 
+/* Content Area */
 .main-content {
   padding: 30px;
   margin-top: 50px;
 }
 
+/* Scrolling Text */
 .scrolling-text-wrapper {
   overflow: hidden;
   white-space: nowrap;
@@ -76,7 +83,7 @@ body {
   padding-left: 100%;
   animation: scroll-left 30s linear infinite;
   font-size: 16px;
-  line-height: 60px; /* Same as top-bar height for perfect vertical centering */
+  line-height: 60px;
 }
 
 @keyframes scroll-left {
@@ -88,6 +95,7 @@ body {
   }
 }
 
+/* Exit Button */
 .img-only-button {
   background: none;
   border: none;
@@ -97,44 +105,154 @@ body {
 }
 
 .img-only-button img {
-  width: 85px; /* Adjust size as needed */
+  width: 85px;
   height: auto;
-  display: block; /* Removes extra space below image */
+  display: block;
   border-radius: 0px;
 }
 
-/* Optional: Position it somewhere like top-right */
 .exit-button {
   position: absolute;
   top: 38px;
   right: 45px;
 }
 
+.exit-button:hover {
+  box-shadow: 0 0 12px 4px rgba(0, 255, 0, 0.6);
+}
+
+/* Grid + Cards */
 .top-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
-  /* space between cards */
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .cards-container {
+  color: #fedf08;
+  font-family: "AmericanTypewriter", sans-serif;
+  font-weight: 600;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 15px; /* space between cards */
-  padding: 40px; /* space around the grid */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 65px;
   margin-top: 130px;
 }
 
 .card {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #000e47;
+  border-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 140px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 35px;
   background-color: #000e47;
   border-radius: 0px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 24px;
-  width: 370px;
-  height: 100px;
+  height: 140px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card.full-span {
-  grid-column: 1 / -1; /* Span across all columns */
-  height: 120px;
-  width: 1287px; /* Optional: Taller card */
+  grid-column: 1 / -1;
+  height: 140px;
+}
+
+/* Text Styles */
+.song-name {
+  font-size: 13px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.scene {
+  font-size: 11px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* ✅ Active Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* vertical spacing between tasks */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.task {
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.task:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.task.done {
+  text-decoration: line-through;
+  color: #888;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+}
+
+.movie-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+
+  scrollbar-width: none; /* Firefox */
+}
+
+.movie-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.movie-images {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.movie-images img {
+  height: 90px;
+  width: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }

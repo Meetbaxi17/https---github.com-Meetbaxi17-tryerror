@@ -200,9 +200,9 @@ body {
 }
 
 .ticket-section {
- position: fixed;
+  position: fixed;
   bottom: 80px;
-  right: 40px;
+  right: 35px;
   z-index: 1000;
 }
 .ticket-content {
@@ -214,11 +214,11 @@ body {
 
 .ticket-image {
   width: 30px; /* adjust size as needed */
+  transform: rotate(25deg);
 }
 
 .ticket-text p {
   font-family: "AmericanTypewriter", sans-serif;
   font-weight: 600;
-    color: #fedf08;
-}
+  color: #fedf08;
 }
