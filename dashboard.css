@@ -15,8 +15,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* ✅ This fixes the background in place */
   height: 100vh;
   margin: 0;
+  overflow: hidden; /* Optional: removes page scroll entirely if not needed */
 }
 
 /* Hover Image */
@@ -68,7 +70,7 @@ body {
 /* Content Area */
 .main-content {
   padding: 30px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 /* Scrolling Text */
@@ -113,7 +115,7 @@ body {
 
 .exit-button {
   position: absolute;
-  top: 38px;
+  top: 37px;
   right: 45px;
 }
 
@@ -172,6 +174,15 @@ body {
 
 /* Text Styles */
 .song-name {
+  font-size: 13px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.place-name {
   font-size: 13px;
   color: white;
   font-family: "Montserrat", sans-serif;
