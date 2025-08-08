@@ -1,23 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 
-#content {
-  position: relative;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
   background-image: url("./03-Dashboard-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* ✅ This fixes the background in place */
-  height: 100vh;
-  margin: 0;
-  overflow: hidden; /* Optional: removes page scroll entirely if not needed */
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .top-wrapper {
@@ -111,21 +105,26 @@ body {
 }
 
 footer.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-
-  color: white;
+  margin-top: auto;
   display: flex;
-  justify-content: center; /* centers content horizontally */
-  align-items: center;
-  padding: 1rem 2rem;
+  justify-content: space-between;
+  padding: 2rem;
+  color: white;
+  background: transparent;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  z-index: 1000;
+}
 
-  gap: 3rem; /* space between text-left and mail */
+.footer .mail,
+.footer .text-left,
+.footer-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-items img {
+  height: 24px;
 }
 
 footer.footer .text-left,
@@ -178,30 +177,110 @@ footer.footer .mail a:hover {
 .ticket-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px; /* Space between blocks */
-  margin-top: 40px;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  align-items: stretch; /* Ensures both blocks match height */
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
-.ticketblock01,
+.profile-img {
+  width: 300px;
+  height: auto;
+}
+
 .ticketblock02 {
-  max-width: 500px;
-  width: 200px;
-  height: 300px;
-  background-color: #ccc; /* Placeholder color */
-  border-radius: 10px;
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 0 40px 40px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-family: "Montserrat", sans-serif;
+  max-width: 600px;
+  min-width: 280px;
+  font-size: 16px;
+  line-height: 1.8;
+  position: relative;
+}
+
+.ticketblock02::before,
+.ticketblock02::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background: blue;
+  border-radius: 50%;
+  background: #0070f3;
+}
+
+.ticketblock02::before {
+  left: -10px;
+  top: 20px;
+}
+
+.ticketblock02::after {
+  left: -10px;
+  bottom: 20px;
 }
 
 .ticketblock01 {
-  width: 200px;
-  height: 300px;
-  background-color: #ccc; /* Placeholder color */
-  border-radius: 10px;
+  width: 250px;
+  background-color: white;
+  border-radius: 40px 0 0 40px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .aboutme-text {
   font-size: 16px;
   line-height: 1.7;
-  color: white;
+  color: black;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px 0; /* ⬅️ Reduce bottom padding */
+  box-sizing: border-box;
+  flex-grow: 1; /* ⬅️ Allow it to fill space */
+}
+
+.ticketblock01 {
+  width: 250px;
+  background-color: white;
+  border-radius: 40px 0 0 40px;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ⬅️ Align all content to the left */
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: left; /* ⬅️ Ensure text aligns left */
+}
+
+.profile-img {
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 4px;
+  color: #333;
 }
