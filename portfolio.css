@@ -18,7 +18,6 @@ body {
   background-attachment: fixed; /* ✅ This fixes the background in place */
   height: 100vh;
   margin: 0;
-  overflow: hidden; /* Optional: removes page scroll entirely if not needed */
 }
 
 /* Hover Image */
@@ -131,3 +130,119 @@ body {
   display: flex;
   align-items: center;
 }
+
+.now-showing-bar {
+  position: sticky;
+  top: 120px; /* sticks 120px below the top */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url("./nowshowingbg.png") no-repeat center/cover;
+  padding: 40px 40px;
+  width: 90%;
+  max-width: 900px;
+  height: 60px;
+  z-index: 998;
+  transition: opacity 0.2s linear; /* smooth fade */
+  opacity: 1; /* default visible */
+}
+
+
+.now-showing {
+  font-family: "AmericanTypewriter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.portfolio-label {
+  font-family: "AmericanTypewriter", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+/* Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 200px auto 0; /* push grid below Now Showing bar */
+  padding: 20px;
+}
+
+.portfolio-item {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.portfolio-image {
+  position: relative;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Info box hidden initially */
+.portfolio-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 14, 71, 0.9);
+  color: white;
+  opacity: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Show on hover */
+.portfolio-image:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio-info h2 {
+  margin: 0;
+}
+
+.subtitle {
+  color: #fedf08;
+  font-weight: bold;
+}
+
+.release-date {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+<script>
+  const nowShowingBar = document.querySelector('.now-showing-bar');
+
+  window.addEventListener('scroll', () => {
+    const rect = nowShowingBar.getBoundingClientRect();
+
+    // The more it scrolls past, the more it fades
+    if (rect.top <= 0) {
+      const fadeDistance = 60; // pixels over which it fades
+      const scrolled = Math.min(Math.abs(rect.top), fadeDistance);
+      nowShowingBar.style.opacity = 1 - (scrolled / fadeDistance);
+    } else {
+      nowShowingBar.style.opacity = 1; // fully visible when not past top
+    }
+  });
+</script>
