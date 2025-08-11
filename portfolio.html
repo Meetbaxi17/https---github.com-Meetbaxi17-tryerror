@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
-    <title>Meet Baxi</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="portfolio.css" />
   </head>
-  <body style="overflow: hidden">
-    <!-- Loader with video -->
-    <div id="loader">
-      <video src="./Loading Screen.mp4" autoplay muted playsinline></video>
+  <body>
+    <div class="hover-image">
+      <a href="aboutme.html" class="aboutme">
+        <img src="./ticket.png" alt="Slide In Image" />
+      </a>
     </div>
 
-    <!-- Main content (initially hidden) -->
-    <div id="content" style="display: none">
+    <div class="top-wrapper">
       <div class="top-bar">
         <div class="bar">
           <img src="./bar.png" alt="bar" />
-          </div>
+        </div>
         <div class="scrolling-text-wrapper">
           <div class="scrolling-text">
             🎬 Showtime Begins: Step into the frame where design meets
@@ -26,47 +30,11 @@
         </div>
       </div>
 
-<div class="card-container">
-  <div class="card">
-    <a href="portfolio.html" class="portfolio">
-    <div class="card-image">
-      <img src="./Rectangle 39.png" alt="Mission Impossible" />
-    </div>
-    <h3>Mission Impossible</h3>
-    <p>Portfolio</p>
-  </a>
-  </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="./Rectangle 40.png" alt="Fall In Love" />
-    </div>
-    <h3>Fall In Love</h3>
-    <p>Personal Projects</p>
-  </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="./Rectangle 41.png" alt="Now Screening" />
-    </div>
-    <h3>Now Screening</h3>
-    <p>Dashboard</p>
-  </div>
-</div>
-
-
-</div>
-    </div>
-
-    <div class="hover-image">
-      <img src="./ticket.png" alt="Slide In Image" />
-    </div>
-
-    <!-- Show content after 5 seconds -->
-    <script>
-      setTimeout(function () {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").style.display = "block";
-        document.body.style.overflow = "auto";
-      }, 5000);
-    </script>
+      <button
+        class="img-only-button exit-button"
+        onclick="location.href='index.html'"
+      >
+        <img src="./EXIT.png" alt="Exit" />
+      </button>
   </body>
 </html>

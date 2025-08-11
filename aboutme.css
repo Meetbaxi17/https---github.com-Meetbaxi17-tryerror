@@ -12,8 +12,10 @@ body {
   background-attachment: fixed;
   overflow-x: hidden;
   overflow-y: hidden;
+  font-family: "Montserrat", sans-serif;
 }
 
+/* --- Top Section --- */
 .top-wrapper {
   position: fixed;
   top: 40px;
@@ -25,7 +27,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  gap: 20px; /* spacing between bar and button */
+  gap: 20px;
 }
 
 .top-bar {
@@ -34,7 +36,6 @@ body {
   color: #fff;
   overflow: hidden;
   padding: 0 20px;
-  box-sizing: border-box;
   border: 2px dotted #fedf08;
   border-radius: 4px;
   display: flex;
@@ -48,13 +49,6 @@ body {
   line-height: 24px;
 }
 
-/* Content Area */
-.main-content {
-  padding: 30px;
-  margin-top: 40px;
-}
-
-/* Scrolling Text */
 .scrolling-text-wrapper {
   overflow: hidden;
   white-space: nowrap;
@@ -78,24 +72,17 @@ body {
   }
 }
 
-/* Exit Button */
+/* --- Exit Button --- */
 .img-only-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  border-radius: 0px;
 }
 
 .img-only-button img {
   width: 85px;
   height: auto;
-  display: block;
-  border-radius: 0px;
-}
-
-.exit-button:hover {
-  box-shadow: 0 0 12px 4px rgba(0, 255, 0, 0.6);
 }
 
 .exit-button {
@@ -104,97 +91,40 @@ body {
   align-items: center;
 }
 
-footer.footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-  color: white;
-  background: transparent;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-}
-
-.footer .mail,
-.footer .text-left,
-.footer-items {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-items img {
-  height: 24px;
-}
-
-footer.footer .text-left,
-footer.footer .mail {
-  white-space: nowrap; /* prevent line breaks */
-}
-
-footer.footer .mail a {
-  color: white; /* Ensures white text */
-  text-decoration: underline; /* Underline the email */
-  font-weight: 500;
-}
-
-footer.footer .mail a:hover {
-  color: white; /* Keeps it white on hover too */
-}
-
-.footer-items {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Adjust spacing between items */
-}
-
-.footer-items a {
-  color: white;
-  text-decoration: underline;
-}
-
-.footer-items img {
-  height: 24px; /* Adjust size as needed */
-  width: auto;
-}
-
-.footer-items {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Adjust spacing between items */
-}
-
-.footer-items a {
-  color: white;
-  text-decoration: underline;
-}
-
-.footer-items img {
-  height: 24px; /* Adjust size as needed */
-  width: auto;
+.exit-button:hover {
+  box-shadow: 0 0 12px 4px rgba(0, 255, 0, 0.6);
 }
 
 .ticket-container {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Ensures both blocks match height */
-  gap: 40px;
+  align-items: stretch;
+  gap: 20px; /* No gap so ticket edges align */
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 150px;
 }
 
-.profile-img {
-  width: 300px;
-  height: auto;
+/* Left side of the ticket */
+.ticketblock01 {
+  width: 250px;
+  background-color: #fbfbfb;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+  position: relative;
 }
 
+/* Right side of the ticket */
 .ticketblock02 {
-  background-color: white;
+  background-color: #fbfbfb;
   color: black;
   padding: 30px;
-  border-radius: 0 40px 40px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  font-family: "Montserrat", sans-serif;
+  border-radius: 0 10px 10px 0;
   max-width: 600px;
   min-width: 280px;
   font-size: 16px;
@@ -202,70 +132,42 @@ footer.footer .mail a:hover {
   position: relative;
 }
 
+/* Perforated edges — left and right */
+.ticketblock01::before,
+.ticketblock01::after,
 .ticketblock02::before,
 .ticketblock02::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 40px;
-  background: blue;
-  border-radius: 50%;
-  background: #0070f3;
+  width: 6px;
+  background: radial-gradient(
+      circle,
+      transparent,
+      transparent 50%,
+      #fbfbfb 50%,
+      #fbfbfb 100%
+    ) -8px -7px / 16px 16px repeat-y;
+  top: 5px;
+  height: calc(100% - 10px);
 }
 
+.ticketblock01::before,
 .ticketblock02::before {
-  left: -10px;
-  top: 20px;
+  left: -5px; /* Left perforation */
 }
 
+.ticketblock01::after,
 .ticketblock02::after {
-  left: -10px;
-  bottom: 20px;
+  right: -5px; /* Right perforation */
+  background: radial-gradient(
+      circle,
+      transparent,
+      transparent 50%,
+      #fbfbfb 50%,
+      #fbfbfb 100%
+    ) -2px -7px / 16px 16px repeat-y;
 }
-
-.ticketblock01 {
-  width: 250px;
-  background-color: white;
-  border-radius: 40px 0 0 40px;
-  padding: 20px;
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.aboutme-text {
-  font-size: 16px;
-  line-height: 1.7;
-  color: black;
-}
-
-.center-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px 0; /* ⬅️ Reduce bottom padding */
-  box-sizing: border-box;
-  flex-grow: 1; /* ⬅️ Allow it to fill space */
-}
-
-.ticketblock01 {
-  width: 250px;
-  background-color: white;
-  border-radius: 40px 0 0 40px;
-  padding: 20px;
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* ⬅️ Align all content to the left */
-  justify-content: space-between;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  text-align: left; /* ⬅️ Ensure text aligns left */
-}
-
+/* Profile image inside left block */
 .profile-img {
   width: 80%;
   border-radius: 5px;
@@ -283,4 +185,55 @@ footer.footer .mail a:hover {
   font-style: italic;
   margin-top: 4px;
   color: #333;
+}
+
+.aboutme-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: black;
+}
+
+/* --- Footer --- */
+footer.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  color: white;
+  background: transparent;
+  font-size: 16px;
+}
+
+.footer .mail,
+.footer .text-left,
+.footer-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-items img {
+  height: 24px;
+}
+
+footer.footer .text-left,
+footer.footer .mail {
+  white-space: nowrap;
+}
+
+footer.footer .mail a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-items a {
+  color: white;
+  text-decoration: underline;
 }
