@@ -122,7 +122,8 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 999;
-  gap: 20px; /* spacing between bar and button */
+  gap: 20px;
+  transition: opacity 0.3s linear; /* so it fades smoothly */
 }
 
 .exit-button {
@@ -132,10 +133,11 @@ body {
 }
 
 .now-showing-bar {
-  position: sticky;
-  top: 120px; /* sticks 120px below the top */
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  top: 120px; /* sits under your top-wrapper */
+  left: 50%; /* ✅ move to center horizontally */
+  transform: translateX(-50%); /* ✅ correct centering */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -144,11 +146,9 @@ body {
   width: 90%;
   max-width: 900px;
   height: 60px;
-  z-index: 998;
-  transition: opacity 0.2s linear; /* smooth fade */
-  opacity: 1; /* default visible */
+  transition: opacity 0.3s linear;
+  opacity: 1;
 }
-
 
 .now-showing {
   font-family: "AmericanTypewriter", sans-serif;
@@ -168,8 +168,15 @@ body {
   grid-template-columns: 1fr;
   gap: 20px;
   max-width: 900px;
-  margin: 200px auto 0; /* push grid below Now Showing bar */
+  margin: 240px auto 0; /* no need for calc now */
   padding: 20px;
+  transition: opacity 0.4s ease; /* smooth fade on opacity change */
+}
+
+.portfolio-grid.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none; /* prevent clicking invisible cards */
 }
 
 .portfolio-item {
@@ -229,20 +236,3 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 }
-
-<script>
-  const nowShowingBar = document.querySelector('.now-showing-bar');
-
-  window.addEventListener('scroll', () => {
-    const rect = nowShowingBar.getBoundingClientRect();
-
-    // The more it scrolls past, the more it fades
-    if (rect.top <= 0) {
-      const fadeDistance = 60; // pixels over which it fades
-      const scrolled = Math.min(Math.abs(rect.top), fadeDistance);
-      nowShowingBar.style.opacity = 1 - (scrolled / fadeDistance);
-    } else {
-      nowShowingBar.style.opacity = 1; // fully visible when not past top
-    }
-  });
-</script>

@@ -115,7 +115,22 @@
 </div>
 
 
+    <script>
+      const topBar = document.getElementById("topBar");
+      const nowShowingBar = document.getElementById("nowShowingBar");
 
+      window.addEventListener("scroll", () => {
+        const fadeStart = 0;
+        const fadeEnd = 150; // smaller = sharper fade
+        let scrollY = window.scrollY;
+
+        let opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+        opacity = Math.max(0, Math.min(1, opacity)); // clamp
+
+        topBar.style.opacity = opacity;
+        nowShowingBar.style.opacity = opacity;
+      });
+    </script>
 
 
   </body>
