@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="personalprojects.css" />
+  </head>
+  <body>
+    <div class="hover-image">
+      <a href="aboutme.html" class="aboutme">
+        <img src="./ticket.png" alt="Slide In Image" />
+      </a>
+    </div>
+
+    <div class="top-wrapper">
+      <div class="top-bar">
+        <div class="bar">
+          <img src="./bar.png" alt="bar" />
+        </div>
+        <div class="scrolling-text-wrapper">
+          <div class="scrolling-text">
+            🎬 Showtime Begins: Step into the frame where design meets
+            narrative, and every scroll
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="img-only-button exit-button"
+        onclick="location.href='index.html'"
+      >
+        <img src="./EXIT.png" alt="Exit" />
+      </button>
+    </div>
+
+    <div class="now-showing-bar">
+      <span class="now-showing">NOW SHOWING</span>
+      <span class="portfolio-label">Personal Projects</span>
+    </div>
+
+    <div class="projects-container">
+      <div class="marquee">
+        <div class="marquee-inner">
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+
+          <div class="project-card">
+            <img src="./art01.png" alt="Project" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const marqueeInner = document.querySelector(".marquee-inner");
+        marqueeInner.innerHTML += marqueeInner.innerHTML; // duplicate images for smooth loop
+      });
+    </script>
+  </body>
+</html>

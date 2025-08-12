@@ -47,17 +47,18 @@
 
 
 <!-- Grid -->
- <div class="portfolio-grid">
-  <div class="portfolio-item">
-    <div class="portfolio-image">
-      <img src="./project01.png" alt="Chili Field">
-      <div class="portfolio-info">
-        <h2>Rupal’s Chili Trade & Traditions</h2>
-        <p class="subtitle">Ethnographic Study</p>
-        <p class="release-date">Released On: 2025</p>
+<div class="projects-container">
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-image">
+        <img src="./project01.png" alt="Chili Field">
+        <div class="portfolio-info">
+          <h2>Rupal’s Chili Trade & Traditions</h2>
+          <p class="subtitle">Ethnographic Study</p>
+          <p class="release-date">Released On: 2025</p>
+        </div>
       </div>
     </div>
-  </div>
 
 <div class="portfolio-item">
     <div class="portfolio-image">
@@ -111,26 +112,31 @@
         <p class="subtitle">Ethnographic Study</p>
         <p class="release-date">Released On: 2025</p>
       </div>
+
+
     </div>
 </div>
 
 
-    <script>
-      const topBar = document.getElementById("topBar");
-      const nowShowingBar = document.getElementById("nowShowingBar");
 
-      window.addEventListener("scroll", () => {
-        const fadeStart = 0;
-        const fadeEnd = 150; // smaller = sharper fade
-        let scrollY = window.scrollY;
 
-        let opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
-        opacity = Math.max(0, Math.min(1, opacity)); // clamp
+<script>
+  const topBar = document.querySelector(".top-bar");
+  const nowShowingBar = document.querySelector(".now-showing-bar");
+  const projectsContainer = document.querySelector(".projects-container");
 
-        topBar.style.opacity = opacity;
-        nowShowingBar.style.opacity = opacity;
-      });
-    </script>
+  projectsContainer.addEventListener("scroll", () => {
+    const fadeStart = 0;
+    const fadeEnd = 80; // much smaller for a sharper fade
+    let scrollY = projectsContainer.scrollTop;
+
+    let opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+    opacity = Math.max(0, Math.min(1, opacity));
+
+    topBar.style.opacity = opacity;
+    nowShowingBar.style.opacity = opacity;
+  });
+</script>
 
 
   </body>
